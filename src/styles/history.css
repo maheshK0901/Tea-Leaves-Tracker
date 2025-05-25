@@ -1,0 +1,162 @@
+/* Container */
+.history-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  border-radius: 25px;
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #2d3748;
+  animation: fadeInUp 0.6s ease-out;
+  margin-top: 10rem; 
+}
+
+/* Heading */
+.history-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  font-size: 2.5rem;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+}
+
+/* Table */
+.history-container table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px; /* adds space between rows */
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.15);
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+}
+
+/* Table Head */
+.history-container th {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  font-weight: 600;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.1rem;
+  user-select: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Table Body Cells */
+.history-container td {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 0.75rem 1rem;
+  text-align: center;
+  font-weight: 500;
+  color: #4a5568;
+  border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+  transition: background-color 0.3s ease;
+  border-radius: 10px;
+}
+
+/* Row Hover */
+.history-container tbody tr:hover td {
+  background: rgba(118, 75, 162, 0.15);
+  color: #764ba2;
+}
+
+/* Buttons */
+.history-container button {
+  margin: 0 6px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border: none;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.history-container button:hover {
+  background: linear-gradient(135deg, #5a67d8, #6b46c1);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+}
+
+.history-container button:last-child {
+  background: linear-gradient(135deg, #f44336, #d32f2f);
+  box-shadow: 0 5px 15px rgba(244, 67, 54, 0.3);
+}
+
+.history-container button:last-child:hover {
+  background: linear-gradient(135deg, #d32f2f, #b71c1c);
+  box-shadow: 0 8px 25px rgba(211, 47, 47, 0.5);
+}
+
+/* Input fields */
+.history-container input[type="date"],
+.history-container input[type="number"] {
+  width: 100%;
+  padding: 8px 12px;
+  border: 2px solid rgba(102, 126, 234, 0.3);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  transition: border-color 0.3s ease;
+  outline: none;
+  box-shadow: 0 3px 10px rgba(102, 126, 234, 0.1);
+}
+
+.history-container input[type="date"]:focus,
+.history-container input[type="number"]:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .history-container table, 
+  .history-container thead, 
+  .history-container tbody, 
+  .history-container th, 
+  .history-container td, 
+  .history-container tr {
+    display: block;
+  }
+
+  .history-container th {
+    display: none;
+  }
+
+  .history-container td {
+    padding-left: 50%;
+    position: relative;
+    border: none;
+    border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .history-container td::before {
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    font-weight: 700;
+    color: #667eea;
+  }
+
+  .history-container td:nth-of-type(1)::before { content: "Date"; }
+  .history-container td:nth-of-type(2)::before { content: "Bags"; }
+  .history-container td:nth-of-type(3)::before { content: "Weight"; }
+  .history-container td:nth-of-type(4)::before { content: "Actions"; }
+}
