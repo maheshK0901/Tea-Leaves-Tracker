@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import AddWeight from "../components/AddWeight";
 import TodayHistory from "../components/TodayHistory";
 import "../styles/home.css"; // Assuming you have a CSS file for styling
+import Calendar from "../components/Calendar";
 
 export default function Home() {
   const [entries, setEntries] = useState(() => {
@@ -31,16 +32,23 @@ export default function Home() {
 
   return (
     <div>
-      <div className="home-container">
-        <h1>Welcome to the Tea Tracker!</h1>
-        <p>This app helps you keep track of your tea leaves and their usage.</p>
-        <h4>Today is {formattedDate}</h4>
-        <h5>{dayOfWeek}</h5>
-        <AddWeight entries={entries} setEntries={setEntries} />
+      <div className="main-content">
+        <div className="home-container">
+          <h1>Welcome to the Tea Tracker!</h1>
+          <p>
+            This app helps you to keep track of your tea leaves.
+          </p>
+          <h4>Today is {formattedDate}</h4>
+          <h5>{dayOfWeek}</h5>
+          <AddWeight entries={entries} setEntries={setEntries} />
+        </div>
+        <div className="calendar-container">
+          <Calendar entries={entries} />
+        </div>
       </div>
       <hr />
       <div>
-        <TodayHistory entries={entries} setEntries={setEntries}/>
+        <TodayHistory entries={entries} setEntries={setEntries} />
       </div>
     </div>
   );

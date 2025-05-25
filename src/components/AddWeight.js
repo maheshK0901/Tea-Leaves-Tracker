@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function AddWeight({entries, setEntries}) {
+export default function AddWeight({ entries, setEntries }) {
   const [date, setDate] = useState("");
   const [bags, setBags] = useState("");
   const [weight, setWeight] = useState("");
@@ -20,7 +20,7 @@ export default function AddWeight({entries, setEntries}) {
     setBags("");
     setWeight("");
     alert("Entry added successfully!");
-  }
+  };
 
   return (
     <div className="add-weight-container">
@@ -30,6 +30,7 @@ export default function AddWeight({entries, setEntries}) {
           type="date"
           className="form-input"
           value={date}
+          max={new Date().toISOString().split("T")[0]}
           onChange={(e) => setDate(e.target.value)}
         />
       </div>
