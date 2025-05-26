@@ -4,7 +4,6 @@ nav {
   left: 0;
   width: 100%;
   z-index: 1000;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -12,7 +11,6 @@ nav {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   box-shadow: 0 8px 32px rgba(237, 61, 61, 0.1);
   backdrop-filter: blur(10px);
-  overflow: hidden;
 }
 
 nav::before {
@@ -22,22 +20,14 @@ nav::before {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
   animation: shimmer 3s infinite;
+  z-index: 0;
 }
 
 @keyframes shimmer {
-  0% {
-    left: -100%;
-  }
-  100% {
-    left: 100%;
-  }
+  0% { left: -100%; }
+  100% { left: 100%; }
 }
 
 .nav-center {
@@ -49,11 +39,8 @@ nav::before {
 }
 
 nav span {
-  color: white;
   font-size: 2.5rem;
   font-weight: 700;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  letter-spacing: 0.5px;
   background: linear-gradient(45deg, #ffffff, #f0f8ff);
   background-clip: text;
   -webkit-background-clip: text;
@@ -73,15 +60,13 @@ nav a {
   padding: 0.75rem 1.5rem;
   margin: 0 0.25rem;
   border-radius: 50px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 0.3s;
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  position: relative;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  transform: translateY(0);
 }
 
 nav a::before {
@@ -96,15 +81,15 @@ nav a::before {
 }
 
 nav a[href="/"]::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,..."); /* Home icon */
 }
 
 nav a[href="/history"]::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,..."); /* Clock icon */
 }
 
 nav a[href="/notes"]::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,..."); /* Edit icon */
 }
 
 nav a:hover {
@@ -125,64 +110,51 @@ nav a:focus {
 
 nav a.active {
   background: rgba(255, 255, 255, 0.25);
-  color: white;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   border-color: rgba(43, 42, 42, 0.5);
-}
-
-nav a.active:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: translateY(-2px);
 }
 
 @media (max-width: 900px) {
   nav {
     flex-direction: column;
-    align-items: stretch;
     padding: 1rem 0.5rem;
   }
+
   .nav-center {
     flex-direction: column;
     gap: 1rem;
     width: 100%;
-    justify-content: center;
     align-items: center;
   }
+
   nav span {
     font-size: 2rem;
-    margin-bottom: 0.5rem;
-    margin-right: 0;
+    margin: 0 0 0.5rem;
   }
+
   nav a {
     width: 100%;
     justify-content: center;
-    padding: 0.75rem 0.5rem;
     font-size: 1.1rem;
   }
 }
 
 @media (max-width: 600px) {
   nav {
-    flex-direction: column;
-    align-items: stretch;
     padding: 0.7rem 0.2rem;
   }
+
   .nav-center {
-    flex-direction: column;
     gap: 0.7rem;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
   }
+
   nav span {
     font-size: 1.5rem;
     margin-bottom: 0.3rem;
-    margin-right: 0;
   }
+
   nav a {
-    width: 100%;
-    justify-content: center;
-    padding: 0.6rem 0.2rem;
     font-size: 1rem;
+    padding: 0.6rem 0.2rem;
   }
 }
